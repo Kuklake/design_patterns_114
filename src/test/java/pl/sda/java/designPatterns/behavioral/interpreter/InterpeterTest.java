@@ -11,6 +11,13 @@ class InterpeterTest {
     private Context context = new Context();
 
     @Test
+    void allTests() {
+        shouldFindAll();
+        shouldSelectLastNamesEndingWithY();
+        shouldSelectAllNames();
+    }
+
+    @Test
     void shouldSelectLastNamesEndingWithY() {
         Expression selectQuery = new Select("lastName",
                 new From("dzieci", new Where(lastName -> lastName.endsWith("y"))));
@@ -20,7 +27,6 @@ class InterpeterTest {
 
         assertEquals(expected, result.toString());
     }
-    
 
     @Test
     void shouldSelectAllNames() {

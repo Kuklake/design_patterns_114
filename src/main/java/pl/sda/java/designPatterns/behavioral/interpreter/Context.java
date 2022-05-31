@@ -28,7 +28,7 @@ public class Context {
     private String column;
     private int colIndex;
 
-    Predicate<String> matchAnyString = s -> s.length() > 0;
+    private Predicate<String> matchAnyString = s -> s.length() > 0;
     private Predicate<String> filter = matchAnyString;
 
     private Function<String, Stream<String>> columnMapper;
@@ -67,6 +67,11 @@ public class Context {
                 .filter(filter)
                 .collect(Collectors.toList());
 
+        clear();
         return result;
+    }
+
+    private void clear() {
+        this.filter = matchAnyString;
     }
 }
