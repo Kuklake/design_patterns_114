@@ -11,7 +11,7 @@ public class StringIterator implements Iterator<String> {
 
     @Override
     public boolean hasNext() {
-        return index < names.length ? true : false;
+        return index < names.length;
     }
 
     @Override
